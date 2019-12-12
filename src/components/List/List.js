@@ -5,6 +5,7 @@ import Column from '../Column/Column.js';
 import ReactHtmlParser from 'react-html-parser';
 import Creator from '../Creator/Creator.js';
 import { settings } from '../../data/dataStore';
+
 import styles from './List.scss';
 
 class List extends React.Component {

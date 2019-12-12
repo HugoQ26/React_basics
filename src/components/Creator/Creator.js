@@ -14,14 +14,14 @@ class Creator extends React.Component {
 
   state = {
     value: '',
-    visibleButtons: false
+    visibleButtons: false,
+    showConfirmButton: false
   };
 
-  handleChange(event) {
-    // console.log(event);
+  handleChange({ target: { value } }) {
     this.setState({
-      value: event.target.value,
-      visibleButtons: event.target.value.length > 0
+      value,
+      visibleButtons: value.length > 0
     });
   }
 
@@ -37,8 +37,15 @@ class Creator extends React.Component {
 
   handleCancel() {
     this.setState({
+      showConfirmButton: true
+    });
+  }
+
+  handleConfirm() {
+    this.setState({
       value: '',
-      visibleButtons: false
+      visibleButtons: false,
+      showConfirmButton: false
     });
   }
 
@@ -61,6 +68,13 @@ class Creator extends React.Component {
           <Button onClick={() => this.handleCancel()} variant="danger">
             cancel
           </Button>
+          {this.state.showConfirmButton ? (
+            <Button onClick={() => this.handleConfirm()} variant="danger">
+              Confirm cancel
+            </Button>
+          ) : (
+            ''
+          )}
         </div>
       </div>
     );
