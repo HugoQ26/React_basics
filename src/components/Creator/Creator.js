@@ -68,12 +68,10 @@ class Creator extends React.Component {
           <Button onClick={() => this.handleCancel()} variant="danger">
             cancel
           </Button>
-          {this.state.showConfirmButton ? (
-            <Button onClick={() => this.handleConfirm()} variant="danger">
+          {this.state.showConfirmButton && (
+            <Button onClick={() => this.handleConfirm()} variant="warning">
               Confirm cancel
             </Button>
-          ) : (
-            ''
           )}
         </div>
       </div>

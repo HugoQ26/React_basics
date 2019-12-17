@@ -5,7 +5,7 @@ import Column from '../Column/Column.js';
 import ReactHtmlParser from 'react-html-parser';
 import Creator from '../Creator/Creator.js';
 import { settings } from '../../data/dataStore';
-
+import emiter from '../storage/eventEmmiter.js';
 import styles from './List.scss';
 
 class List extends React.Component {
@@ -42,7 +42,17 @@ class List extends React.Component {
     }));
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    emiter.emit('columnChange', {
+      colums: this.state,
+      listIndex: this.props.listIndex
+    });
+  }
+
   render() {
+    const listIndex = this.props.listIndex;
+    console.log('listIndex', listIndex);
+
     return (
       <section className="styles.component">
         <Hero titleText={this.props.title} image={this.props.image} />
@@ -50,8 +60,8 @@ class List extends React.Component {
           {ReactHtmlParser(this.props.description)}
         </div>
         <div className={styles.columns}>
-          {this.state.columns.map(({ key, ...columnProps }) => (
-            <Column key={key} {...columnProps} />
+          {this.state.columns.map(({ key, ...columnProps }, index) => (
+            <Column key={key} {...columnProps} columnIndex={index} />
           ))}
         </div>
         <div className={styles.creator}>

@@ -4,7 +4,8 @@ import styles from './Column.scss';
 import Card from '../Card/Card.js';
 import Creator from '../Creator/Creator.js';
 import Icon from '../Icon/Icon.js';
-import { settings } from '../../data/dataStore';
+import { settings, listData } from '../../data/dataStore';
+import emiter from '../storage/eventEmmiter.js';
 
 class Column extends React.Component {
   state = {
