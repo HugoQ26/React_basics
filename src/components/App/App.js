@@ -5,11 +5,10 @@ import Creator from '../Creator/Creator.js';
 import Rollout from '../Rollout/Rollout.js';
 import { pageContents, listData, settings } from '../../data/dataStore.js';
 import styles from './App.scss';
-import emiter from '../storage/eventEmmiter.js';
 
 class App extends React.Component {
   state = {
-    list: listData
+    list: listData,
   };
 
   addList(title) {
@@ -23,9 +22,9 @@ class App extends React.Component {
           title,
           description: 'description',
           image: 'http://uploads.kodilla.com/bootcamp/fer/11.react/space.png',
-          columns: []
-        }
-      ]
+          columns: [],
+        },
+      ],
     }));
   }
 

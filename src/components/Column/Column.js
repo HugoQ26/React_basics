@@ -4,16 +4,17 @@ import styles from './Column.scss';
 import Card from '../Card/Card.js';
 import Creator from '../Creator/Creator.js';
 import Icon from '../Icon/Icon.js';
-import { settings, listData } from '../../data/dataStore';
-import emiter from '../storage/eventEmmiter.js';
+import { settings } from '../../data/dataStore';
 
 class Column extends React.Component {
   state = {
-    cards: this.props.cards
+    cards: this.props.cards,
   };
 
   static propTypes = {
-    title: PropTypes.string.isRequired
+    title: PropTypes.string.isRequired,
+    cards: PropTypes.array,
+    icon: PropTypes.node,
   };
 
   addCard(title) {
@@ -25,9 +26,9 @@ class Column extends React.Component {
             ? state.cards[state.cards.length - 1].key + 1
             : 0,
           title,
-          icon: 'list-alt'
-        }
-      ]
+          icon: 'list-alt',
+        },
+      ],
     }));
   }
 

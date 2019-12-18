@@ -10,20 +10,22 @@ import styles from './List.scss';
 
 class List extends React.Component {
   state = {
-    columns: this.props.columns || []
+    columns: this.props.columns || [],
   };
 
   static propTypes = {
     title: PropTypes.node.isRequired,
     imgSrc: PropTypes.string.isRequired,
     description: PropTypes.node,
-    columns: PropTypes.array
+    columns: PropTypes.array,
+    listIndex: PropTypes.string,
+    image: PropTypes.string,
   };
 
   static defaultProps = {
     description: settings.defaultListDescription,
     imgSrc:
-      'https://images.pexels.com/photos/3345270/pexels-photo-3345270.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260'
+      'https://images.pexels.com/photos/3345270/pexels-photo-3345270.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
   };
 
   addColumn(title) {
@@ -36,16 +38,16 @@ class List extends React.Component {
             : 0,
           title,
           icon: 'list-alt',
-          cards: []
-        }
-      ]
+          cards: [],
+        },
+      ],
     }));
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate() {
     emiter.emit('columnChange', {
       colums: this.state,
-      listIndex: this.props.listIndex
+      listIndex: this.props.listIndex,
     });
   }
 

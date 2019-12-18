@@ -1,7 +1,6 @@
 import React from 'react';
 import Icon from '../Icon/Icon.js';
 import styles from './Hamburger.scss';
-import { listData } from '../../data/dataStore.js';
 
 class Hamburger extends React.Component {
   handleHamClick() {

@@ -5,23 +5,24 @@ import PropTypes from 'prop-types';
 
 class Creator extends React.Component {
   static propTypes = {
-    text: PropTypes.string
+    text: PropTypes.string,
+    action: PropTypes.func,
   };
 
   static defaultProps = {
-    text: 'Add new item'
+    text: 'Add new item',
   };
 
   state = {
     value: '',
     visibleButtons: false,
-    showConfirmButton: false
+    showConfirmButton: false,
   };
 
   handleChange({ target: { value } }) {
     this.setState({
       value,
-      visibleButtons: value.length > 0
+      visibleButtons: value.length > 0,
     });
   }
 
@@ -30,14 +31,14 @@ class Creator extends React.Component {
       this.props.action(this.state.value);
       this.setState({
         value: '',
-        visibleButtons: false
+        visibleButtons: false,
       });
     }
   }
 
   handleCancel() {
     this.setState({
-      showConfirmButton: true
+      showConfirmButton: true,
     });
   }
 
@@ -45,7 +46,7 @@ class Creator extends React.Component {
     this.setState({
       value: '',
       visibleButtons: false,
-      showConfirmButton: false
+      showConfirmButton: false,
     });
   }
 

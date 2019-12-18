@@ -1,6 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Rollout extends React.Component {
+  static propTypes = {
+    list: PropTypes.node,
+  };
+
   render() {
     return (
       <div>
