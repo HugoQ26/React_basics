@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import styles from './home.scss';
 
 import Hamburger from '../Hamburger/Hamburger.js';
-import List from '../List/ListContainer';
-import Search from '../Search/SearchContainer';
-import SearchResults from '../SearchResults/SearchResultsContainer';
+import ListLink from '../ListLink/ListLink';
+// import Search from '../Search/SearchContainer';
+// import SearchResults from '../SearchResults/SearchResultsContainer';
 
 class Home extends React.Component {
   static propTypes = {
@@ -17,18 +17,18 @@ class Home extends React.Component {
   };
 
   render() {
-    const { title, subtitle, lists, searchString } = this.props;
+    const { title, subtitle, lists } = this.props;
+    console.log(lists);
+
     return (
       <main className={styles.component}>
         <Hamburger />
         <h1 className={styles.title}>{title}</h1>
         <h2 className={styles.subtitle}>{subtitle}</h2>
-        <Search />
-        {!searchString ? (
-          lists.map(listData => <List key={listData.id} {...listData} />)
-        ) : (
-          <SearchResults />
-        )}
+
+        {lists.map(listData => (
+          <ListLink key={listData.id} {...listData} />
+        ))}
       </main>
     );
   }
