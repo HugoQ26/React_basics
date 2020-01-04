@@ -1,6 +1,6 @@
 @import '../../styles/settings.scss';
 
-.component {
+section.component {
   position: relative;
   width: 30%;
   background: $color-light;
@@ -9,8 +9,19 @@
   margin: 0 0 $base-size 0;
   border-radius: $radius;
   color: black;
-}
 
-h2 {
-  padding-bottom: 20px;
+  section > section:hover,
+  section > section:active {
+    box-shadow: 2px 2px 10px rgb(189, 188, 188);
+  }
+
+  h2 {
+    padding-bottom: 20px;
+  }
+
+  a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
 }
