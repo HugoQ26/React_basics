@@ -9,6 +9,7 @@ import Info from '../Info/Info';
 import List from '../List/ListContainer';
 import MainLayout from '../MainLayout/MainLayout';
 import Faq from '../Faq/Faq';
+import SearchResults from '../SearchResults/SearchResultsContainer';
 
 const App = () => (
   <BrowserRouter>
@@ -23,6 +24,7 @@ const App = () => (
         <Route exact path="/info" component={Info} />
         <Route exact path="/faq" component={Faq} />
         <Route exact path="/list/:id" component={List} />
+        <Route exact path="/search/:searchtext" component={SearchResults} />
       </AnimatedSwitch>
     </MainLayout>
   </BrowserRouter>

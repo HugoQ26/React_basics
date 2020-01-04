@@ -5,6 +5,7 @@ import styles from './Header.scss';
 
 import Container from '../Container/Container';
 import Icon from '../Icon/Icon';
+import Search from '../Search/SearchContainer';
 import { settings } from '../../data/dataStore';
 
 const headerIcon = settings.headerComponent.icon;
@@ -18,6 +19,7 @@ class Header extends React.Component {
             <Link to="/" className={styles.logo}>
               <Icon name={headerIcon} />
             </Link>
+            <Search />
             <nav>
               <NavLink exact to="/" activeClassName="active">
                 Home

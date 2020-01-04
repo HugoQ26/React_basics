@@ -1,8 +1,8 @@
 import shortid from 'shortid';
 
 // selectors
-export const getCardsForResult = ({ cards, searchString }) =>
-  cards.filter(card => new RegExp(searchString, 'i').test(card.title));
+export const getCardsForResult = ({ cards }, text) =>
+  cards.filter(card => new RegExp(text, 'i').test(card.title));
 
 // action name creator
 const reducerName = 'results';

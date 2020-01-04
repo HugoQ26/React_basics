@@ -3,17 +3,13 @@ import PropTypes from 'prop-types';
 import Card from '../Card/Card';
 import styles from './SearchResults.scss';
 import Container from '../Container/Container';
+import { withRouter } from 'react-router';
 
 const SearchResults = ({ cards }) => {
-  /* TODO zrobic mapowanie cards i wyswitlic card title, column id i list id */
-  console.log(cards);
-
   return (
     <Container>
       <section className={styles.component}>
-        <h2>
-          Znaleziono {cards.length} {cards.length === 1 ? 'kartę' : 'kart'}{' '}
-        </h2>
+        <h2>Znaleziono {cards.length}</h2>
         {cards.map(({ title, id, columnId }) => {
           return (
             <section key={id}>
@@ -28,6 +24,8 @@ const SearchResults = ({ cards }) => {
 };
 SearchResults.propTypes = {
   cards: PropTypes.array,
+  params: PropTypes.string,
+  match: PropTypes.object,
 };
 
-export default SearchResults;
+export default withRouter(SearchResults);
