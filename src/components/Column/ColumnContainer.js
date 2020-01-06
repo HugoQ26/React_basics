@@ -8,6 +8,7 @@ import { getCardsForColumn, createActionAddCard } from '../../redux/cardsRedux';
 
 const mapStateToProps = (state, props) => ({
   cards: getCardsForColumn(state, props.id),
+  searchString: state.searchString,
 });
 
 const mapDispatchToProps = (dispatch, props) => ({

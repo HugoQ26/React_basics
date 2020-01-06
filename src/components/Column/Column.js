@@ -6,7 +6,7 @@ import Creator from '../Creator/Creator.js';
 import Icon from '../Icon/Icon.js';
 import { settings } from '../../data/dataStore';
 
-const Column = ({ title, icon, cards, addCard }) => {
+const Column = ({ title, icon, cards, addCard, searchString }) => {
   return (
     <section className={styles.component}>
       <h3 className={styles.title}>
@@ -17,7 +17,7 @@ const Column = ({ title, icon, cards, addCard }) => {
         </span>
       </h3>
       {cards.map(cardData => (
-        <Card key={cardData.id} {...cardData} />
+        <Card key={cardData.id} {...cardData} searchString={searchString}/>
       ))}
       <Creator text={settings.cardCreatorText} action={addCard} />
     </section>
@@ -29,6 +29,7 @@ Column.propTypes = {
   cards: PropTypes.array,
   icon: PropTypes.node,
   addCard: PropTypes.func,
+  searchString: PropTypes.string,
 };
 
 Column.defaultProps = {

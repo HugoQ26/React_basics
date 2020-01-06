@@ -10,7 +10,7 @@ export const getCardsForResult = ({ cards, columns }, text) => {
     for (const column of columns) {
       if (card.columnId == column.id) {
         return {
-          ...card,
+          ...card,  
           listId: column.listId,
           columnTitle: column.title,
         };
