@@ -10,8 +10,7 @@ const Card = ({ title, searchString }) => {
     if(searchString) {
       if (new RegExp(searchString, 'i').test(title)) {
         return {color: 'red'};
-      }
-      return {};
+      }      
     }
   };
   

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './home.scss';
+import styles from './Home.scss';
 
 import Hamburger from '../Hamburger/Hamburger.js';
 import ListLink from '../ListLink/ListLink';
